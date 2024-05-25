@@ -8,7 +8,11 @@ import {ERC20Votes} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Vo
 import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 
 contract GovToken is ERC20, ERC20Permit, ERC20Votes {
-    constructor() ERC20("GovToken", "GTK") ERC20Permit("GovToken") {}
+constructor() ERC20("GovToken", "GTK") ERC20Permit("GovToken") {}
+
+function mint(address to, uint256 amount)  public {
+ _mint(to, amount);   
+}
 
  function mintTo(address to, uint256 amount) public {
         _mint(to, amount);
